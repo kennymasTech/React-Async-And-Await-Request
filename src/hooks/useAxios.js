@@ -13,7 +13,7 @@ const useAxios = (configObj) => {
     useEffect(() => {
         let isMounted = true;
         // const controller = new AbortController();
-        
+
         const fetchData = async () => {
             try {
                 const res = await axiosInstance[method.toLowerCase()](url, {
@@ -37,9 +37,9 @@ const useAxios = (configObj) => {
             // controller.abort()
         };
 
-    }, [])
+    }, [reload])
 
-    return [response, loading, error]
+    return [ response, loading, error, refetch ]
 };
 
 
