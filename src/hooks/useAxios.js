@@ -1,21 +1,15 @@
-import { useEffect, useState } from "react";
-
+import { useState, useEffect } from "react";
 
 const useAxios = (configObj) => {
-    const {
-        axiosInstance,
-        method,
-        url,
-        requestConfig = {}
-    } = configObj;
+    const { axiosInstance, method, url, requestConfig = {} } = configObj;
 
-    const [ response, setResponse ] = useState([])    
-    const [ error, setError ] = useState('')    
-    const [ loading, setLoading ] = useState(true)    
+    const [response, setResponse] = useState([]);
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(true);
 
-    useEffect (() => {
-        // const controller = new AbortController()
-
+    useEffect(() => {
+        // const controller = new AbortController();
+        let isMounted = true;
         const fetchData = async () => {
             try {
                 const res = await axiosInstance[method.toLowerCase()](url, {
@@ -23,22 +17,26 @@ const useAxios = (configObj) => {
                     // signal: controller.signal
                 })
                 console.log(res);
-                setResponse(res.data)
+                isMounted && setResponse(res.data)
 
-            } catch (error) {
-                console.log(error);
-                setError(error.message)
+            } catch (err) {
+                console.log(err);
+                setError(err.message)
             } finally {
                 setLoading(false)
             }
         }
+        fetchData();
 
-        fetchData()
+        return () => {
+            isMounted = false
+            // controller.abort()
+        };
 
-        // return () => controller.abort()
     }, [])
 
-    return [ response, loading, error ]
+    return [response, loading, error]
 };
 
-export default useAxios;
+
+export default useAxios
