@@ -4,6 +4,7 @@ const BASE_URL = "http://icanhazdadjoke.com";
 export default axios.create({
     baseUrl: BASE_URL,
     headers: {
-        
+        "Content-Type": "application/json",
+        "Accept": "application/json"
     }
 })
