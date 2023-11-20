@@ -22,9 +22,9 @@ const Jokes = () => {
 
             {!loading && !error && joke && <p>{joke?.joke}</p>}
 
-            {!loading && !error && !joke && <p>No Joke display! 🙂</p>}
+            {!loading && !error && !joke && <p>No Joke To Display! 🙂</p>}
 
-            butt
+            <button onClick={() => refetch()} >Get Joke</button>
         </article>
     )
 }
