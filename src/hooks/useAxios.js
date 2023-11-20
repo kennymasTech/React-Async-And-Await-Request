@@ -8,11 +8,12 @@ const useAxios = (configObj) => {
     const [loading, setLoading] = useState(true);
     const [reload, setReload] = useState(0);
 
-    
+    const refresh = () => setReload(prev => prev + 1)
 
     useEffect(() => {
-        // const controller = new AbortController();
         let isMounted = true;
+        // const controller = new AbortController();
+        
         const fetchData = async () => {
             try {
                 const res = await axiosInstance[method.toLowerCase()](url, {
