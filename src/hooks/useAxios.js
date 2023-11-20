@@ -39,6 +39,6 @@ const useAxios = (configObj) => {
     })
 
     return [ response, loading, error ]
-}
+};
 
 export default useAxios
