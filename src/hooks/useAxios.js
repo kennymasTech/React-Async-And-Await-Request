@@ -8,7 +8,7 @@ const useAxios = (configObj) => {
     const [loading, setLoading] = useState(true);
     const [reload, setReload] = useState(0);
 
-    const refresh = () => setReload(prev => prev + 1)
+    const refetch = () => setReload(prev => prev + 1)
 
     useEffect(() => {
         let isMounted = true;
