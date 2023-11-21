@@ -22,6 +22,9 @@ const Posts = () => {
             axiosInstance: axios,
             method: "/posts",
             url: "posts",
+            requestConfig: {
+                
+            }
         })
     }
 
