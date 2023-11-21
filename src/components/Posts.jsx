@@ -34,6 +34,10 @@ const Posts = () => {
   return <article>
             <h2>Posts</h2>
 
+            <div className="row">
+                <button onClick={() => handleSubmit()}></button>
+            </div>
+
             {loading && <p>loading...</p>}
             {!loading && error && <p className="errMsg">{error}</p>}
             {!loading && !error && posts?.length && 
