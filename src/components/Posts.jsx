@@ -1,12 +1,11 @@
 import axios from "../apis/jsonPH";
 import useAxiosFunction from "../hooks/useAxiosFunction";
 import { useEffect } from "react";
-
-
 import React from 'react'
 
+
 const Posts = () => {
-    const [response, loading, error, axiosFetch] = useAxiosFunction();
+    const [posts, loading, error, axiosFetch] = useAxiosFunction();
 
     useEffect (() => {
         // to get the data from the endpoint
@@ -37,9 +36,9 @@ const Posts = () => {
 
             {loading && <p>loading...</p>}
             {!loading && error && <p className="errMsg">{error}</p>}
-            {!loading && !error && joke && <p>{joke?.joke}</p>}
+            {!loading && !error && posts && <p>{joke?.joke}</p>}
             {!loading && !error && !joke && <p>No Joke To Display! 🙂</p>}
-            
+
          </article>
 }
 
