@@ -9,6 +9,7 @@ const Posts = () => {
     const [response, loading, error, axiosFetch] = useAxiosFunction();
 
     useEffect (() => {
+        // to get the data from the endpoint
         axiosFetch ({
             axiosInstance: axios,
             method: "/posts",
@@ -17,7 +18,11 @@ const Posts = () => {
     }, [])
 
     const handleSubmit = () => {
-        
+        axiosFetch ({
+            axiosInstance: axios,
+            method: "/posts",
+            url: "posts",
+        })
     }
 
   return <div>Posts</div>
