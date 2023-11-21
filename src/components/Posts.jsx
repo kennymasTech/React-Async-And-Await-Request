@@ -32,7 +32,15 @@ const Posts = () => {
         })
     }
 
-  return <div>Posts</div>
+  return <article>
+            <h2>Posts</h2>
+
+            {loading && <p>loading...</p>}
+            {!loading && error && <p className="errMsg">{error}</p>}
+            {!loading && !error && joke && <p>{joke?.joke}</p>}
+            {!loading && !error && !joke && <p>No Joke To Display! 🙂</p>}
+            
+         </article>
 }
 
 export default Posts
