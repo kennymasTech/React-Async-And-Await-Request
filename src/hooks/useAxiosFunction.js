@@ -37,12 +37,12 @@ const useAxiosFunction = () => {
     useEffect(() => {
         console.log(controller);
 
-
+        // clean up
         return () => controller.abort()
 
     }, [controller])
 
-    return [ response, loading, error, refetch ]
+    return [response, loading, error, axiosFetch]
 };
 
 
