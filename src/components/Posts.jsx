@@ -47,7 +47,9 @@ const Posts = () => {
                         ))}
                 </ul> 
             }
-            {!loading &&!error && posts?.length }
+            {!loading && !error && posts?.length && posts?.data && (
+                <p>userId:{posts.data?.userId}, title {}</p>
+            )}
             {!loading && !error && !posts && <p>No Post To Display! 🙂</p>}
 
          </article>
