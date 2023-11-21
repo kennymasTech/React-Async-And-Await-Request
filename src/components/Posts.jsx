@@ -37,6 +37,7 @@ const Posts = () => {
          <h2>Posts</h2>
          <div className="row">
             <button onClick={handleSubmit}>Submit</button>
+            <button onClick={handleSubmit}>Re-request</button>
          </div>
 
          {loading && <p>Loading...</p>}
