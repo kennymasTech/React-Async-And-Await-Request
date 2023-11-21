@@ -7,9 +7,12 @@ import React from 'react'
 
 const Posts = () => {
     const [response, loading, error, axiosFetch] = useAxiosFunction
-  return (
-    <div>Posts</div>
-  )
+
+    const getData = () => {
+        
+    }
+
+  return <div>Posts</div>
 }
 
 export default Posts
