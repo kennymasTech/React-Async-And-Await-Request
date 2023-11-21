@@ -26,14 +26,14 @@ const useAxiosFunction = () => {
             console.log(err);
             setError(err.message)
         } finally {
-            setLoading(false)
+            setLoading(true)
         }
     }
 
     useEffect(() => {
         let isMounted = true;
         // const controller = new AbortController();
-        
+
 
         return () => {
             isMounted = false
