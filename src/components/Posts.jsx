@@ -23,8 +23,12 @@ const Posts = () => {
             method: "/posts",
             url: "posts",
             requestConfig: {
-                
-            }
+                data: {
+                    userId: 1,
+                    title: "Kennymas",
+                    body: "brother oni chicken...",
+                },
+            },
         })
     }
 
