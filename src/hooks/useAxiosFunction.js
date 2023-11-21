@@ -17,7 +17,7 @@ const useAxiosFunction = () => {
         try {
             setLoading(true)
             const controller = new AbortController()
-            setController(control)
+            setController(ctrl)
 
             const res = await axiosInstance[method.toLowerCase()](url, {
                 ...requestConfig,
@@ -30,7 +30,7 @@ const useAxiosFunction = () => {
             console.log(err);
             setError(err.message)
         } finally {
-            setLoading(true)
+            setLoading(false)
         }
     }
 
