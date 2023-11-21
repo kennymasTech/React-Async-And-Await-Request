@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 
 const useAxiosFunction = () => {
-    // const { axiosInstance, method, url, requestConfig = {} } = configObj;
+    
 
     const [response, setResponse] = useState([]);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const [controller, setController] = useState();
 
-    
+    const axiosFetch = async (configObj) => {
+        const { axiosInstance, method, url, requestConfig = {} } = configObj;
+    }
 
     useEffect(() => {
         let isMounted = true;
