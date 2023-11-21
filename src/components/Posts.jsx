@@ -14,6 +14,7 @@ const Posts = () => {
    };
 
    useEffect(() => {
+    // to get the data from the endpoint
       getData();
    }, []);
 
