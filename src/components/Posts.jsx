@@ -8,9 +8,13 @@ import React from 'react'
 const Posts = () => {
     const [response, loading, error, axiosFetch] = useAxiosFunction();
 
-    const getData = () => {
-
-    }
+    useEffect (() => {
+        axiosFetch ({
+            axiosInstance: axios,
+            method: "/posts",
+            url: "GET",
+        })
+    }, [])
 
   return <div>Posts</div>
 }
