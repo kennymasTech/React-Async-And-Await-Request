@@ -25,7 +25,7 @@ const Posts = () => {
          requestConfig: {
             data: {
                userId: 10,
-               title: "Supreme",
+               title: "Kennymas",
                body: "Holla at your boy...",
             },
          },
