@@ -40,11 +40,10 @@ const Posts = () => {
                 <ul>
                     {posts.map((post, i) => (
                             <li key={i}>{post.id}. {post.title}</li>
-                        ))
-                    }
+                        ))}
                 </ul> 
             }
-            {!loading && !error && !joke && <p>No Post To Display! 🙂</p>}
+            {!loading && !error && !posts && <p>No Post To Display! 🙂</p>}
 
          </article>
 }
