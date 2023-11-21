@@ -24,7 +24,7 @@ const useAxiosFunction = () => {
                 signal: controller.signal
             })
             console.log(res);
-            isMounted && setResponse(res.data)
+            setResponse(res.data)
 
         } catch (err) {
             console.log(err);
@@ -35,16 +35,12 @@ const useAxiosFunction = () => {
     }
 
     useEffect(() => {
-        let isMounted = true;
-        // const controller = new AbortController();
+        console.log(controller);
 
 
-        return () => {
-            isMounted = false
-            // controller.abort()
-        };
+        return () => controller.abort()
 
-    }, [reload])
+    }, [controller])
 
     return [ response, loading, error, refetch ]
 };
