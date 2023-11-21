@@ -47,8 +47,8 @@ const Posts = () => {
                         ))}
                 </ul> 
             }
-            {!loading &&!error && !}
-            {!loading && !error && !posts?.length && <p>No Post To Display! 🙂</p>}
+            {!loading &&!error && posts?.length }
+            {!loading && !error && !posts && <p>No Post To Display! 🙂</p>}
 
          </article>
 }
