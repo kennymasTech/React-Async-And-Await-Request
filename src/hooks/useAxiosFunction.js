@@ -2,48 +2,45 @@ import { useState, useEffect } from "react";
 
 const useAxiosFunction = () => {
     const [response, setResponse] = useState([]);
-    const [error, setError] = useState("");
-    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false); //different!
     const [controller, setController] = useState();
 
     const axiosFetch = async (configObj) => {
-        const { 
-            axiosInstance, 
-            method, 
-            url, 
-            requestConfig = {} 
+        const {
+            axiosInstance,
+            method,
+            url,
+            requestConfig = {}
         } = configObj;
 
         try {
-            setLoading(true)
-            const controller = new AbortController()
-            setController(ctrl)
-
+            setLoading(true);
+            const ctrl = new AbortController();
+            setController(ctrl);
             const res = await axiosInstance[method.toLowerCase()](url, {
                 ...requestConfig,
-                signal: controller.signal
-            })
+                signal: ctrl.signal
+            });
             console.log(res);
-            setResponse(res.data)
-
+            setResponse(res.data);
         } catch (err) {
-            console.log(err);
-            setError(err.message)
+            console.log(err.message);
+            setError(err.message);
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
     }
 
     useEffect(() => {
-        console.log(controller);
+        console.log(controller)
 
-        // clean up
-        return () => controller.abort()
+        // useEffect cleanup function
+        return () => controller && controller.abort();
 
-    }, [controller])
+    }, [controller]);
 
-    return [response, loading, error, axiosFetch]
-};
-
+    return [response, error, loading, axiosFetch];
+}
 
 export default useAxiosFunction

@@ -11,19 +11,19 @@ const Posts = () => {
         // to get the data from the endpoint
         axiosFetch ({
             axiosInstance: axios,
-            method: "/posts",
-            url: "GET",
+            method: "GET",
+            url: "/posts",
         })
     }, [])
 
     const handleSubmit = () => {
         axiosFetch ({
             axiosInstance: axios,
-            method: "/posts",
-            url: "posts",
+            method: "post",
+            url: "/posts",
             requestConfig: {
                 data: {
-                    userId: 1,
+                    userId: 10,
                     title: "Kennymas",
                     body: "brother oni chicken...",
                 },
@@ -35,7 +35,7 @@ const Posts = () => {
             <h2>Posts</h2>
 
             <div className="row">
-                <button onClick={() => handleSubmit()}>Submit</button>
+                <button onClick={handleSubmit}>Submit</button>
             </div>
 
             {loading && <p>loading...</p>}
@@ -47,7 +47,8 @@ const Posts = () => {
                         ))}
                 </ul> 
             }
-            {!loading && !error && !posts && <p>No Post To Display! 🙂</p>}
+            {!loading &&!error && !}
+            {!loading && !error && !posts?.length && <p>No Post To Display! 🙂</p>}
 
          </article>
 }

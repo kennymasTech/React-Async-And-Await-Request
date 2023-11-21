@@ -1,5 +1,6 @@
 import "./App.css";
 import Jokes from "./components/Jokes";
+import Posts from "./components/Posts";
 
 function App() {
   return (
@@ -7,7 +8,8 @@ function App() {
       <h1>useAxios Hooks</h1>
 
       <>
-        <Jokes />
+        <Jokes/>
+        <Posts/>
       </>
     </main>
   );
