@@ -16,6 +16,10 @@ const Posts = () => {
         })
     }, [])
 
+    const handleSubmit = () => {
+        
+    }
+
   return <div>Posts</div>
 }
 
