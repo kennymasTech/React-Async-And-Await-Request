@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useAxiosFunction = (configObj) => {
+const useAxiosFunction = () => {
     const { axiosInstance, method, url, requestConfig = {} } = configObj;
 
     const [response, setResponse] = useState([]);
