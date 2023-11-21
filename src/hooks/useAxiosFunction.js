@@ -15,11 +15,13 @@ const useAxiosFunction = () => {
         } = configObj;
 
         try {
-            const ctrl = new AbortController()
-            
+            setLoading(true)
+            const controller = new AbortController()
+            setController(control)
+
             const res = await axiosInstance[method.toLowerCase()](url, {
                 ...requestConfig,
-                // signal: controller.signal
+                signal: controller.signal
             })
             console.log(res);
             isMounted && setResponse(res.data)
